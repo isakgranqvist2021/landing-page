@@ -5,7 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Landing Page</title>
+
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="icon" type="image/png" href="<Favicon>" />
+    <meta name="description" content="<Description of website>" />
+    <meta itemprop="name" content="<Title of website>" />
+    <meta itemprop="description" content="<Description of website>" />
+    <meta itemprop="image" content="<Thumbnail when sharing>" />
+    <meta property="og:url" content="<Website URL>" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="<Title of website>" />
+    <meta property="og:description" content="<Description of website>" />
+    <meta property="og:image" content="<Thumbnail when sharing>" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="<Title of website>" />
+    <meta name="twitter:description" content="<Description of website>" />
+    <meta name="twitter:image" content="<Thumbnail when sharing>" />
+
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=<G-TAG>"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', '<G-TAG>');
+    </script>
   </head>
   <body>
     <nav class="py-3">
