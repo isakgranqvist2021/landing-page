@@ -5,16 +5,11 @@ steps:
   # Build the container image
   - name: 'gcr.io/cloud-builders/docker'
     args:
-      [
-        'build',
-        '-t',
-        'gcr.io/gothic-venture-373811/<Docker Container Name>',
-        '.',
-      ]
+      ['build', '-t', 'gcr.io/<GCP Project Name>/<Docker Container Name>', '.']
 
   # Push the container image to Container Registry
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'gcr.io/gothic-venture-373811/<Docker Container Name>']
+    args: ['push', 'gcr.io/<GCP Project Name>/<Docker Container Name>']
 
   # Deploy container image to Cloud Run
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
@@ -26,9 +21,9 @@ steps:
         '<GCP Service Name>',
         '--allow-unauthenticated',
         '--service-account',
-        '680698972592-compute@developer.gserviceaccount.com',
+        '<GCP Service Account Name>@<GCP Project Name>.iam.gserviceaccount.com',
         '--image',
-        'gcr.io/gothic-venture-373811/<Docker Container Name>',
+        'gcr.io/<GCP Project Name>/<Docker Container Name>',
         '--region',
         'europe-west1',
         '--allow-unauthenticated',
@@ -42,4 +37,4 @@ steps:
         '80',
       ]
 images:
-  - gcr.io/gothic-venture-373811/<Docker Container Name>
+  - gcr.io/<GCP Project Name>/<Docker Container Name>
