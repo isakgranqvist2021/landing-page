@@ -4,12 +4,11 @@ options:
 steps:
   # Build the container image
   - name: 'gcr.io/cloud-builders/docker'
-    args:
-      ['build', '-t', 'gcr.io/<GCP Project Name>/<Docker Container Name>', '.']
+    args: ['build', '-t', 'gcr.io/<GCP Project Name>/<Docker Image Tag>', '.']
 
   # Push the container image to Container Registry
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'gcr.io/<GCP Project Name>/<Docker Container Name>']
+    args: ['push', 'gcr.io/<GCP Project Name>/<Docker Image Tag>']
 
   # Deploy container image to Cloud Run
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
@@ -23,7 +22,7 @@ steps:
         '--service-account',
         '<GCP Service Account Name>@<GCP Project Name>.iam.gserviceaccount.com',
         '--image',
-        'gcr.io/<GCP Project Name>/<Docker Container Name>',
+        'gcr.io/<GCP Project Name>/<Docker Image Tag>',
         '--region',
         'europe-west1',
         '--allow-unauthenticated',
@@ -37,4 +36,4 @@ steps:
         '80',
       ]
 images:
-  - gcr.io/<GCP Project Name>/<Docker Container Name>
+  - gcr.io/<GCP Project Name>/<Docker Image Tag>
