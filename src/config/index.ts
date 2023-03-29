@@ -2,8 +2,8 @@ import 'dotenv/config';
 import rateLimit from 'express-rate-limit';
 
 const env = {
-  NODE_PORT: process.env.NODE_PORT,
-  NODE_ENV: process.env.NODE_ENV,
+  NODE_PORT: process.env.NODE_PORT || process.env.PORT || 8080,
+  NODE_ENV: process.env.NODE_ENV || 'production',
 };
 
 for (const key in env) {
